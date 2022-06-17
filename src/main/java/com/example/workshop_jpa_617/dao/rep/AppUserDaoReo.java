@@ -36,14 +36,14 @@ public class AppUserDaoReo implements AppUserDao {
     @Override
     @Transactional
     public AppUser update(AppUser appUser) {
-        findById(appUser.getId()).orElseThrow(()->new DataNotFoundException("appUser not found"));
+        findById(appUser.getId()).orElseThrow(() -> new DataNotFoundException("appUser not found"));
         return entityManager.merge(appUser);
     }
 
     @Override
     @Transactional
     public void remove(AppUser appUser) {
-        findById(appUser.getId()).orElseThrow(()->new DataNotFoundException("appUser not found"));
+        findById(appUser.getId()).orElseThrow(() -> new DataNotFoundException("appUser not found"));
         entityManager.remove(appUser);
     }
 }

@@ -37,14 +37,14 @@ public class AuthorDaoRep implements AuthorDao {
     @Override
     @Transactional
     public Author update(Author author) {
-        findById(author.getId()).orElseThrow(()->new DataNotFoundException(("author not found")));
+        findById(author.getId()).orElseThrow(() -> new DataNotFoundException(("author not found")));
         return entityManager.merge(author);
     }
 
     @Override
     @Transactional
     public void remove(Author author) {
-        findById(author.getId()).orElseThrow(()->new DataNotFoundException(("author not found")));
+        findById(author.getId()).orElseThrow(() -> new DataNotFoundException(("author not found")));
         entityManager.remove(author);
     }
 }

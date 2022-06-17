@@ -25,7 +25,7 @@ public class DetailsDaoRep implements DetailsDao {
 
     @Override
     public Optional<Details> findById(int id) {
-        return Optional.ofNullable(entityManager.find(Details.class,id));
+        return Optional.ofNullable(entityManager.find(Details.class, id));
     }
 
     @Override
@@ -36,14 +36,14 @@ public class DetailsDaoRep implements DetailsDao {
     @Override
     @Transactional
     public Details update(Details details) {
-        findById(details.getId()).orElseThrow(()->new DataNotFoundException("details not found"));
+        findById(details.getId()).orElseThrow(() -> new DataNotFoundException("details not found"));
         return entityManager.merge(details);
     }
 
     @Override
     @Transactional
     public void remove(Details details) {
-        findById(details.getId()).orElseThrow(()->new DataNotFoundException("details not found"));
+        findById(details.getId()).orElseThrow(() -> new DataNotFoundException("details not found"));
         entityManager.remove(details);
     }
 }

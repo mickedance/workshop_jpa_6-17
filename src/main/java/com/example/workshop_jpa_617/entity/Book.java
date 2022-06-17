@@ -39,7 +39,7 @@ public class Book {
     }
 
     public void setId(int id) {
-        if(id<0) throw new IllegalArgumentException("id must be 0 or more");
+        if (id < 0) throw new IllegalArgumentException("id must be 0 or more");
         this.id = id;
     }
 
@@ -48,8 +48,8 @@ public class Book {
     }
 
     public void setIsbn(String isbn) {
-        if(isbn==null) throw new IllegalArgumentException("isbn was null");
-        if(isbn.trim().isEmpty()) throw new IllegalArgumentException("isbn was empty");
+        if (isbn == null) throw new IllegalArgumentException("isbn was null");
+        if (isbn.trim().isEmpty()) throw new IllegalArgumentException("isbn was empty");
         this.isbn = isbn;
     }
 
@@ -58,8 +58,8 @@ public class Book {
     }
 
     public void setTitle(String title) {
-        if(title==null) throw new IllegalArgumentException("title was null");
-        if(title.trim().isEmpty()) throw new IllegalArgumentException("title was empty");
+        if (title == null) throw new IllegalArgumentException("title was null");
+        if (title.trim().isEmpty()) throw new IllegalArgumentException("title was empty");
         this.title = title;
     }
 
@@ -68,7 +68,7 @@ public class Book {
     }
 
     public void setMaxLoanDays(int maxLoanDays) {
-        if(maxLoanDays<0) throw new IllegalArgumentException("maxLoanDays must be 0 or more");
+        if (maxLoanDays < 0) throw new IllegalArgumentException("maxLoanDays must be 0 or more");
         this.maxLoanDays = maxLoanDays;
     }
 
@@ -77,7 +77,7 @@ public class Book {
     }
 
     public void setAuthors(List<Author> authors) {
-        if(authors==null) throw new IllegalArgumentException("authors is null");
+        if (authors == null) throw new IllegalArgumentException("authors is null");
         this.authors = authors;
     }
 

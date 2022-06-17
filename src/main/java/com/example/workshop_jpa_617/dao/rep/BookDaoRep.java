@@ -36,14 +36,14 @@ public class BookDaoRep implements BookDao {
     @Override
     @Transactional
     public Book update(Book book) {
-        findById(book.getId()).orElseThrow(()->new DataNotFoundException("book not found"));
+        findById(book.getId()).orElseThrow(() -> new DataNotFoundException("book not found"));
         return entityManager.merge(book);
     }
 
     @Override
     @Transactional
     public void remove(Book book) {
-        findById(book.getId()).orElseThrow(()->new DataNotFoundException("book not found"));
+        findById(book.getId()).orElseThrow(() -> new DataNotFoundException("book not found"));
         entityManager.remove(book);
     }
 }

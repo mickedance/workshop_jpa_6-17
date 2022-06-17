@@ -7,8 +7,12 @@ import java.util.Optional;
 
 public interface BookLoanDao {
     BookLoan save(BookLoan bookLoan);
+
     Optional<BookLoan> findById(int id);
+
     List<BookLoan> findAll();
+
     BookLoan update(BookLoan bookLoan);
+
     void remove(BookLoan bookLoan);
 }

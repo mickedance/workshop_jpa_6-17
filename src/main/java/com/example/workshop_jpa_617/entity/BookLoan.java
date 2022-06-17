@@ -20,14 +20,14 @@ public class BookLoan {
     private boolean returned;
     @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
     private AppUser borrower;
-    @ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE,CascadeType.REMOVE})
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
     private Book book;
 
     public BookLoan() {
         setLoanDate(LocalDate.now());
     }
 
-    public BookLoan (AppUser borrower, Book book) {
+    public BookLoan(AppUser borrower, Book book) {
         this();
         setBorrower(borrower);
         setBook(book);
@@ -38,7 +38,7 @@ public class BookLoan {
     }
 
     public void setId(int id) {
-        if(id<0) throw new IllegalArgumentException("id must be 0 or more");
+        if (id < 0) throw new IllegalArgumentException("id must be 0 or more");
     }
 
     public LocalDate getLoanDate() {
@@ -46,17 +46,19 @@ public class BookLoan {
     }
 
     public void setLoanDate(LocalDate loanDate) {
-        if(loanDate==null) throw new IllegalArgumentException("loanDate was null");
+        if (loanDate == null) throw new IllegalArgumentException("loanDate was null");
         this.loanDate = loanDate;
     }
+
     public LocalDate getDueDate() {
         return dueDate;
     }
 
     public void setDueDate(LocalDate dueDate) {
-        if(dueDate==null) throw new IllegalArgumentException("dueDate is null");
+        if (dueDate == null) throw new IllegalArgumentException("dueDate is null");
         this.dueDate = dueDate;
     }
+
     public boolean isReturned() {
         return returned;
     }
@@ -70,7 +72,7 @@ public class BookLoan {
     }
 
     public void setBorrower(AppUser borrower) {
-        if(borrower==null) throw new IllegalArgumentException("borrower was null");
+        if (borrower == null) throw new IllegalArgumentException("borrower was null");
         this.borrower = borrower;
     }
 
@@ -79,7 +81,7 @@ public class BookLoan {
     }
 
     public void setBook(Book book) {
-        if(book==null) throw new IllegalArgumentException("Book was null");
+        if (book == null) throw new IllegalArgumentException("Book was null");
         setDueDate(loanDate.plusDays(book.getMaxLoanDays()));
         this.book = book;
     }

@@ -18,13 +18,13 @@ public class AppUser {
     private String password;
     @Column(nullable = false)
     private LocalDate regDate;
-    @OneToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE,CascadeType.REMOVE})
+    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
     private Details userDetails;
-    @OneToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE,CascadeType.REMOVE}, mappedBy = "borrower")
+    @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE}, mappedBy = "borrower")
     private List<BookLoan> bookLoans;
 
     public AppUser() {
-       setRegDate(LocalDate.now());
+        setRegDate(LocalDate.now());
     }
 
     public AppUser(String username, String password, Details userDetails) {
@@ -44,7 +44,7 @@ public class AppUser {
     }
 
     public void setId(int id) {
-        if(id<0) throw new IllegalArgumentException("id must be 0 or more");
+        if (id < 0) throw new IllegalArgumentException("id must be 0 or more");
         this.id = id;
     }
 
@@ -53,8 +53,8 @@ public class AppUser {
     }
 
     public void setUsername(String username) {
-        if(username==null) throw new IllegalArgumentException("username was null");
-        if(username.trim().isEmpty()) throw new IllegalArgumentException("username was empty");
+        if (username == null) throw new IllegalArgumentException("username was null");
+        if (username.trim().isEmpty()) throw new IllegalArgumentException("username was empty");
         this.username = username;
     }
 
@@ -63,8 +63,8 @@ public class AppUser {
     }
 
     public void setPassword(String password) {
-        if(password==null) throw new IllegalArgumentException("password was null");
-        if(password.trim().isEmpty()) throw new IllegalArgumentException("password was empty");
+        if (password == null) throw new IllegalArgumentException("password was null");
+        if (password.trim().isEmpty()) throw new IllegalArgumentException("password was empty");
         this.password = password;
     }
 
@@ -73,7 +73,7 @@ public class AppUser {
     }
 
     public void setRegDate(LocalDate regDate) {
-        if(regDate==null) throw new IllegalArgumentException("regDate was null");
+        if (regDate == null) throw new IllegalArgumentException("regDate was null");
 
         this.regDate = regDate;
     }
@@ -83,7 +83,7 @@ public class AppUser {
     }
 
     public void setUserDetails(Details userDetails) {
-        if(userDetails==null) throw new IllegalArgumentException("userDetails was null");
+        if (userDetails == null) throw new IllegalArgumentException("userDetails was null");
         this.userDetails = userDetails;
     }
 
@@ -92,7 +92,7 @@ public class AppUser {
     }
 
     public void setBookLoans(List<BookLoan> bookLoans) {
-        if(bookLoans==null) throw new IllegalArgumentException("bookLoans was null");
+        if (bookLoans == null) throw new IllegalArgumentException("bookLoans was null");
         this.bookLoans = bookLoans;
     }
 

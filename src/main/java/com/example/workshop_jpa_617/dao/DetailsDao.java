@@ -7,8 +7,12 @@ import java.util.Optional;
 
 public interface DetailsDao {
     Details save(Details details);
+
     Optional<Details> findById(int id);
+
     List<Details> findAll();
+
     Details update(Details details);
+
     void remove(Details details);
 }

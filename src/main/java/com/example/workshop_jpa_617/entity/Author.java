@@ -15,7 +15,7 @@ public class Author {
     private String firstName;
     @Column(nullable = false)
     private String lastName;
-    @ManyToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE,CascadeType.REMOVE})
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
     private List<Book> writtenBooks;
 
     public Author() {
@@ -36,7 +36,7 @@ public class Author {
     }
 
     public void setId(int id) {
-        if(id<0) throw new IllegalArgumentException("id must be 0 or more");
+        if (id < 0) throw new IllegalArgumentException("id must be 0 or more");
     }
 
     public String getFirstName() {
@@ -44,8 +44,8 @@ public class Author {
     }
 
     public void setFirstName(String firstName) {
-        if(firstName==null) throw new IllegalArgumentException("firstname was null");
-        if(firstName.trim().isEmpty()) throw new IllegalArgumentException("firstname was empty");
+        if (firstName == null) throw new IllegalArgumentException("firstname was null");
+        if (firstName.trim().isEmpty()) throw new IllegalArgumentException("firstname was empty");
         this.firstName = firstName;
     }
 
@@ -54,8 +54,8 @@ public class Author {
     }
 
     public void setLastName(String lastName) {
-        if(lastName==null) throw new IllegalArgumentException("lastName was null");
-        if(lastName.trim().isEmpty()) throw new IllegalArgumentException("lastName was empty");
+        if (lastName == null) throw new IllegalArgumentException("lastName was null");
+        if (lastName.trim().isEmpty()) throw new IllegalArgumentException("lastName was empty");
         this.lastName = lastName;
     }
 
@@ -64,14 +64,14 @@ public class Author {
     }
 
     public void setWrittenBooks(List<Book> writtenBooks) {
-        if(writtenBooks==null) throw new IllegalArgumentException("writtenBooks was null");
+        if (writtenBooks == null) throw new IllegalArgumentException("writtenBooks was null");
         this.writtenBooks = writtenBooks;
     }
 
-    public void addBook(Book book){
-        if(writtenBooks==null) writtenBooks = new ArrayList<>();
-        if(!writtenBooks.contains(book)) writtenBooks.add(book);
-        if(book.getAuthors() == null) book.setAuthors(new ArrayList<>());
-        if(!book.getAuthors().contains(this)) book.getAuthors().add(this);
+    public void addBook(Book book) {
+        if (writtenBooks == null) writtenBooks = new ArrayList<>();
+        if (!writtenBooks.contains(book)) writtenBooks.add(book);
+        if (book.getAuthors() == null) book.setAuthors(new ArrayList<>());
+        if (!book.getAuthors().contains(this)) book.getAuthors().add(this);
     }
 }

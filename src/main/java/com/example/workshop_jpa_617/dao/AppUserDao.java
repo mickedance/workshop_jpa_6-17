@@ -7,8 +7,12 @@ import java.util.Optional;
 
 public interface AppUserDao {
     AppUser save(AppUser appUser);
+
     Optional<AppUser> findById(int id);
+
     List<AppUser> findAll();
+
     AppUser update(AppUser appUser);
+
     void remove(AppUser appUser);
 }

@@ -28,7 +28,7 @@ public class Details {
     }
 
     public void setId(int id) {
-        if(id<0) throw new IllegalArgumentException("id must be 0 or more");
+        if (id < 0) throw new IllegalArgumentException("id must be 0 or more");
         this.id = id;
     }
 
@@ -37,8 +37,8 @@ public class Details {
     }
 
     public void setEmail(String email) {
-        if(email==null) throw new IllegalArgumentException("email was null");
-        if(email.trim().isEmpty()) throw new IllegalArgumentException("email was empty");
+        if (email == null) throw new IllegalArgumentException("email was null");
+        if (email.trim().isEmpty()) throw new IllegalArgumentException("email was empty");
         this.email = email;
     }
 
@@ -47,17 +47,17 @@ public class Details {
     }
 
     public void setName(String name) {
-        if(name==null) throw new IllegalArgumentException("name was null");
-        if(name.trim().isEmpty()) throw new IllegalArgumentException("name was empty");
+        if (name == null) throw new IllegalArgumentException("name was null");
+        if (name.trim().isEmpty()) throw new IllegalArgumentException("name was empty");
         this.name = name;
     }
 
     public LocalDate getBirthDay() {
-                return birthDay;
+        return birthDay;
     }
 
     public void setBirthDay(LocalDate birthDay) {
-        if(birthDay==null) throw new IllegalArgumentException("birthday was null");
+        if (birthDay == null) throw new IllegalArgumentException("birthday was null");
         this.birthDay = birthDay;
     }
 

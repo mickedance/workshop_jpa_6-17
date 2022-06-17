@@ -21,12 +21,12 @@ public class BookLoanDaoTest {
 
     @Test
     @Transactional
-    public void test_bookLoan_successfully(){
+    public void test_bookLoan_successfully() {
         AppUser appUser = new AppUser("username", "password", new Details("email@", "name", LocalDate.parse("1980-09-09")));
 
-        Book book = new Book("isbnr", "title",3);
+        Book book = new Book("isbnr", "title", 3);
         book.addAuthor(new Author("aurhorname", "lastname"));
-        BookLoan bookLoan = new BookLoan(appUser,book);
+        BookLoan bookLoan = new BookLoan(appUser, book);
         BookLoan savedLoan = testObject.save(bookLoan);
         System.out.println(savedLoan);
 
